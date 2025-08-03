@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="px-4 py-5 my-5 text-center">
+
+  {% if current_user.is_authenticated %}
+    <h1 class="display-5 fw-bold text-body-emphasis">
+    Welcome, {{ current_user.username }}🧙‍♂️
+    </h1>
+  {% else %}
+    <h1 class="display-5 fw-bold text-body-emphasis">
+      Welcome to my Magic School 🧙‍♂️
+    </h1>
+  {% endif %}
+  <h2>Let's create your own Spellbook together! </h2>
+  <img
+    class="wizard-img img-fluid"
+    src="{{ url_for('static', filename='images/wizard1.png') }}"
+    alt="Wizard"
+  />
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      Unleash your imagination and craft your own magical universe. With our interactive Spellbook,
+      you can create, collect, and showcase powerful spells from every school of magic.
+      Whether you're a seasoned wizard or just starting your magical journey,
+      this is your place to shine. ✨🪄
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="{{ url_for('register') }}" class="btn btn-outline-secondary btn-lg px-4 gap-3">
+        Sign up
+      </a>
+      <a href="{{ url_for('login') }}" class="btn btn-secondary btn-lg px-4">
+        Sign in
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

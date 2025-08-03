@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4">📖 Spellbook 🔮</h1>
+<div class="row">
+  {% for spell in spells %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <img
+        src="{{ url_for('static', filename='images/' + spell.image) }}"
+        class="card-img-top"
+        alt="{{ spell.name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{ spell.name }}</strong></h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ spell.school }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Level: {{ spell.level }}</h6>
+        <p class="card-text"><em>{{ spell.description }}</em></p>
+        <h6 class="card-subtitle mb-2 text-muted">Created by: {{ spell.author.username }}</h6>
+
+        {% if current_user.is_authenticated and spell.user_id == current_user.id %}
+        <form action="{{ url_for('delete_spell', spell_id=spell.id) }}" method="POST" style="display:inline;">
+          <button class="btn btn-sm btn-danger mt-2" type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+        </form>
+        <a class="btn btn-sm btn-primary mt-2" href="{{ url_for('update_spell', spell_id=spell.id) }}">Edit</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
