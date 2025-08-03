@@ -16,6 +16,7 @@ ENV/
 instance/
 *.db
 *.sqlite3
+config.py
 
 # Pytest / coverage
 .coverage
