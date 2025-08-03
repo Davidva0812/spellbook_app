@@ -148,6 +148,8 @@ def update_spell(spell_id):
         spell.name = request.form['name']
         spell.school = request.form['school']
         spell.level = request.form['level']
+        spell.damage = request.form['damage']
+        spell.duration = request.form['duration']
         spell.description = request.form['description']
 
         if 'image' in request.files and request.files['image'].filename != '':

@@ -11,6 +11,8 @@ class NewSpellForm(FlaskForm):
     name = StringField("Spell's name", validators=[DataRequired()])
     school = StringField("School of Magic", validators=[DataRequired()])
     level = IntegerField("Level", validators=[DataRequired(), NumberRange(min=1, max=5)])
+    damage = IntegerField("Damage", validators=[NumberRange(min=0, max=1000)])
+    duration = IntegerField("Duration (in sec)", validators=[NumberRange(min=0, max=10000)])
     description = TextAreaField("Describe it")
     image = FileField("Upload the spell's image", validators=[
         FileRequired(),

@@ -24,6 +24,8 @@ class Spell(db.Model):
     name = db.Column(db.String, nullable=False)
     school = db.Column(db.String, nullable=False)
     level = db.Column(db.Integer, nullable=False)
+    damage = db.Column(db.Integer, nullable=True)
+    duration = db.Column(db.Integer, nullable=True)
     description = db.Column(db.String, nullable=True)
     image = db.Column(db.String, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

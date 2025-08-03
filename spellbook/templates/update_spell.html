@@ -20,6 +20,16 @@
     </div>
 
     <div class="mb-3">
+      <label for="level" class="form-label">Spell Damage</label>
+      <input type="number" min="0" class="form-control" id="damage" name="damage" value="{{ spell.damage }}">
+    </div>
+
+    <div class="mb-3">
+      <label for="level" class="form-label">Spell Duration (in sec)</label>
+      <input type="number" min="0" class="form-control" id="duration" name="duration" value="{{ spell.duration }}">
+    </div>
+
+    <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control" id="description" name="description" rows="4">{{ spell.description }}</textarea>
     </div>
