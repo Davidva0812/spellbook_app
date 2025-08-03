@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+*.env
+
+# Flask settings
+instance/
+*.db
+*.sqlite3
+
+# Pytest / coverage
+.coverage
+htmlcov/
+.tox/
+
+# VSCode & IDE stuff
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Uploaded images
+spellbook/static/images/
+!spellbook/static/images/.gitkeep
