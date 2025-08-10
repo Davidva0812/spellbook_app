@@ -1,0 +1,9 @@
+Copyright (c) 2025 David Varga
+
+All rights reserved.
+
+This software and all associated materials (including but not limited to source code, images, audio, and documentation) are the exclusive property of the copyright holder.
+
+No part of this project may be copied, used, modified, distributed, or sublicensed without explicit prior written permission from the copyright holder.
+
+Unauthorized use, reproduction, or distribution is strictly prohibited.
