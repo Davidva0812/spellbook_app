@@ -5,30 +5,8 @@ from spellbook import app, db
 from spellbook import db
 from spellbook.models import Spell, User
 from spellbook.forms import NewSpellForm, NewUserForm, LoginForm
-#from spellbook.data import test_users, spell_data
 from spellbook import bcrypt
 from flask_login import login_user, login_required, current_user, logout_user
-
-"""with app.app_context():
-    db.create_all()
-    #for tests:
-    for test_user in test_users:
-        hashed_password = bcrypt.generate_password_hash("alma25").decode("utf-8")
-        user = User(username=test_user["username"], email=test_user["email"], password=hashed_password)
-        db.session.add(user)
-    for spell in spell_data:
-        spell_obj = Spell(name=spell["name"], school=spell["school"], level=spell["level"],
-                          description=spell["description"], image=spell["image"], user_id=spell["user_id"])
-        db.session.add(spell_obj)
-    db.session.commit()
-    for test_user in test_users:
-        existing = User.query.filter_by(email=test_user["email"]).first()
-        if not existing:
-            hashed_password = bcrypt.generate_password_hash("alma25").decode(
-                "utf-8")
-            user = User(username=test_user["username"], email=test_user["email"],
-                        password=hashed_password)
-            db.session.add(user)"""
 
 
 @app.route('/')
@@ -81,22 +59,6 @@ def create():
 def register():
     form = NewUserForm()
     if form.validate_on_submit():
-        """image_file = form.image.data
-        filename = secure_filename(image_file.filename)
-        image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        os.makedirs(os.path.dirname(image_path), exist_ok=True)
-        image_file.save(image_path)
-
-        new_spell = Spell(
-            name=form.name.data,
-            school=form.school.data,
-            level=form.level.data,
-            description=form.description.data,
-            image=filename
-        )
-
-        db.session.add(new_spell)
-        db.session.commit()"""
 
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
